@@ -1,5 +1,13 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+
+const myFont = localFont({
+  src: "./fonts/samarkan.ttf",
+  variable: "--font-samarkan",
+
+})
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,9 +27,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${myFont.variable} ${geistMono.variable}`} >
+        <Navbar/>
         {children}
       </body>
     </html>
